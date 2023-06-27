@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\learnopengl">
+      <UniqueIdentifier>{a81cb9eb-caa4-4055-ad4b-583a3b31b02c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\learnopengl">
+      <UniqueIdentifier>{c1b1273e-f8be-4a42-8bb7-f43d45f6fc35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -21,5 +27,13 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="learnopengl\shader_s.cpp">
+      <Filter>源文件\learnopengl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="learnopengl\shader_s.h">
+      <Filter>头文件\learnopengl</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

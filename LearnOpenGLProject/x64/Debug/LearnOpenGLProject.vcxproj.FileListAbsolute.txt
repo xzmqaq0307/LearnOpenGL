@@ -1,1 +1,2 @@
 D:\Project\LearnOpenGLProject\LearnOpenGLProject\x64\Debug\LearnOpenGLProject.exe
+C:\Users\Kimmaro\Desktop\项目\LearnOpenGL\LearnOpenGLProject\x64\Debug\LearnOpenGLProject.exe
