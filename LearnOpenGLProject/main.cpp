@@ -72,6 +72,7 @@ int main()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    // 检查一次GLFW是否被要求推出
     while (!glfwWindowShouldClose(window))
     {
         // 监听键盘事件
@@ -86,7 +87,10 @@ int main()
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
+        // 交换颜色缓冲, 它这一迭代中被用来绘制，并且将会
         glfwSwapBuffers(window);
+        
+        // 函数检查有没有什么触发事件、更新窗口状态，并且调用对应的回调函数
         glfwPollEvents();
     }
 
@@ -108,5 +112,6 @@ void processInput(GLFWwindow* window)
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
+    // OpenGl渲染窗口尺寸大小，即视口
     glViewport(0, 0, width, height);
 }
