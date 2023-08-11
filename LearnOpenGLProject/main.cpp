@@ -73,6 +73,7 @@ int main()
     glEnableVertexAttribArray(1);
 
     // 检查一次GLFW是否被要求推出
+    int colorTurns = 0;
     while (!glfwWindowShouldClose(window))
     {
         // 监听键盘事件
@@ -86,6 +87,25 @@ int main()
         ourShader.use();
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        
+        float xoffset = sin(glfwGetTime());
+        float yoffset = cos(glfwGetTime());
+        
+        ourShader.setFloat("xOffset", xoffset);
+        ourShader.setFloat("yOffset", yoffset);
+
+        // 这里保证了拿到的值一定是从 0.5 - 1 - 0.5
+        float timeValue = sin(glfwGetTime()) / 2 + 0.5;
+        // std::cout << timeValue << std::endl;
+        for (int i = 0; i < 3; i++)
+        {
+            vertices[3 + i * 3] = colorTurns == 0 ? timeValue : 0;
+            vertices[3 + i * 3 + 1] = colorTurns == 1 ? timeValue : 0;
+            vertices[3 + i * 3 + 2] = colorTurns == 2 ? timeValue : 0;
+        }
+
+        colorTurns = (colorTurns + 1) % 3;
 
         // 交换颜色缓冲, 它这一迭代中被用来绘制，并且将会
         glfwSwapBuffers(window);

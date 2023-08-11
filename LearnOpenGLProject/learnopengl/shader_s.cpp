@@ -47,7 +47,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	glShaderSource(fragment, 1, &fShaderCode, NULL);
 	// 编译当前的着色器
 	glCompileShader(fragment);
-	// checkComplieErrors(vertex, "FRAGMENT");
+	checkCompileErrors(vertex, "FRAGMENT");
 
 	// 着色器程序
 	ID = glCreateProgram();
@@ -56,7 +56,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	glAttachShader(ID, fragment);
 	// 链接
 	glLinkProgram(ID);
-	// checkCompileErrors(ID, "PROGRAM");
+	checkCompileErrors(ID, "PROGRAM");
 	// 删除着色器
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
